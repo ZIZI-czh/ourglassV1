@@ -32,6 +32,7 @@ Route::middleware([
 
 });
 
+//after logout jump to confirmation
 Route::get('/logout', [AuthenticatedSessionController::class, 'showLogoutConfirmation'])
     ->name('logout.confirmation');
 
