@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ImagesController;
+use App\Http\Controllers\RobotDashboardController;
+
+use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,18 +17,24 @@ use App\Http\Controllers\ImagesController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    // Route::get('/dashboard', function () {
+    //     return view('dashboard');
+    // })->name('dashboard');
+
+    Route::get('/robot-information', [RobotDashboardController::class, 'getRobotInformation'])
+        ->name('robot-information');
+
 });
+
+Route::get('/logout', [AuthenticatedSessionController::class, 'showLogoutConfirmation'])
+    ->name('logout.confirmation');
+
+
 
 Route::get('/images', 'ImagesController@resizeImage')->name('image.resize');

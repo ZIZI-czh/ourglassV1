@@ -11,7 +11,7 @@ class ImageController extends Controller
 
     public function resizeImage()
     {
-        dd("1");
+
 
         $originalImagePath = public_path('public/images/ourglass_logo.jpg');
         $resizedImagePath = public_path('public/images/logo.jpg');
