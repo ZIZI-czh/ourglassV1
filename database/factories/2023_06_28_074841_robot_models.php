@@ -4,18 +4,17 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
     public function up(): void
     {
-        Schema::create('group_ids', function (Blueprint $table) {
-            $table->string('groupId');
-            $table->string('userName');
+        Schema::create('robot_models', function (Blueprint $table) {
+            $table->id();
+            $table->string('model_name');
+            $table->string('image_path');
             $table->timestamps();
-
         });
     }
 
@@ -24,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('group_ids');
+        Schema::dropIfExists('robot_models');
     }
 };

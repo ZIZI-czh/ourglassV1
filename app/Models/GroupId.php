@@ -10,14 +10,19 @@ class GroupId extends Model
     use HasFactory;
     protected $table = 'group_ids';
     protected $fillable =
-    [
-        'groupId',
-        'userName',
+        [
+            'groupId',
+            'userName',
 
-    ];
+        ];
 
     public function users()
     {
         return $this->hasOne(User::class, 'groupId');
+    }
+
+    public function robots()
+    {
+        return $this->hasMany(Robot::class, 'groupId');
     }
 }
