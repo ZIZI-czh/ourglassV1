@@ -20,13 +20,10 @@ class RobotDashboardController extends Controller
         } else {
             return redirect()->back()->with('error', 'Robot data is missing.');
         }
-
-
     }
 
     public function getRobotInformation()
     {
-
         $email = auth()->user()->email;
         $user = \App\Models\User::where('email', $email)->firstOrFail();
         $groupId = $user->groupId;

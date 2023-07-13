@@ -4,21 +4,27 @@
         @foreach ($robots as $robot)
         <div class="container-fluid">
             <div class="card card-background">
-                <div class="col-md-1">
-                    <img src="{{ asset('images/logo.png') }}" class="card-img" :alt="robot.robotId">
+                <div class="col-md-1 image-container">
+                    {{-- <img src="{{ asset('images/logo.png') }}" class="card-img" :alt="robot.robotId"> --}}
+                    @php
+                    $modelImage = \App\Models\ModelChoice::where('model_name', $robot['robotModel'])->value('image_path');
+
+                    $imagePath = $modelImage ? asset('images/' . $modelImage) : asset('images/robotModel/logo.png');
+                    @endphp
+                    <img src="{{ $imagePath }}" class="card-img" :alt="robot.robotId">
                     <button class="button" onclick="window.location.href = '{{ $robot['editRoute'] }}'">Edit</button>
                 </div>
                 <div class=" col-md-4">
                     <div class="card-body">
-                        <p>Robot Name: {{ $robot['robotName']  ?? '-'}}</p>
-                        <p>Robot Model: {{ $robot['robotModel'] ?? '-' }}</p>
-                        <p>Supplier: {{ $robot['supplier'] ?? '-' }}</p>
-                        <p>Mac Address: {{ $robot['macAddress'] ?? '-' }}</p>
-                        <p>PID: {{ $robot['pid'] ?? '-' }}</p>
-                        <p>Charge State: {{ $robot['data']['chargeStage'] }}</p>
-                        <p>Move State: {{ $robot['data']['moveState'] }}</p>
-                        <p>Robot State: {{ $robot['data']['robotState'] }}</p>
-                        <p>Robot Power: {{ $robot['data']['robotPower'] }} %</p>
+                        <p><strong>Robot Name: </strong>{{ $robot['robotName'] ?? '-' }}</p>
+                        <p><strong>Robot Model: </strong>{{ $robot['robotModel'] ?? '-' }}</p>
+                        <p><strong>Supplier: </strong>{{ $robot['supplier'] ?? '-' }}</p>
+                        <p><strong>Mac Address: </strong>{{ $robot['macAddress'] ?? '-' }}</p>
+                        <p><strong>PID: </strong>{{ $robot['pid'] ?? '-' }}</p>
+                        <p><strong>Charge State: </strong>{{ $robot['data']['chargeStage'] }}</p>
+                        <p><strong>Move State: </strong>{{ $robot['data']['moveState'] }}</p>
+                        <p><strong>Robot State: </strong>{{ $robot['data']['robotState'] }}</p>
+                        <p><strong>Robot Power: </strong>{{ $robot['data']['robotPower'] }} %</p>
                     </div>
                 </div>
             </div>

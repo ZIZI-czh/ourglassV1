@@ -11,7 +11,6 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('robot_models', function (Blueprint $table) {
-            $table->id();
             $table->string('model_name');
             $table->string('image_path');
             $table->timestamps();

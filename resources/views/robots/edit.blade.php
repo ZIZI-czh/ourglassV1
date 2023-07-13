@@ -56,8 +56,9 @@
                                 <option value="">Select robot model</option>
                                 <option value="Pudu1">Pudu1</option>
                                 <option value="Pudu2">Pudu2</option>
-                                <option value="Peanut">Peanut</option>
+                                <option value="Bella">Bella</option>
                                 <option value="Ketty">Ketty</option>
+                                <option value="HolaBot">HolaBot</option>
                                 <!-- Add more options as needed -->
                             </select>
                         </div>

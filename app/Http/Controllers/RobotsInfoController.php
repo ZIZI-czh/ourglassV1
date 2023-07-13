@@ -15,6 +15,7 @@ class RobotsInfoController extends Controller
         $validator = Validator::make($request->all(), [
             // 'robotName' => 'required|unique:robots,robotName,' . $robot->groupId,
             'robotName' => 'required',
+            'robotModel' => 'required',
             'supplier' => 'required',
             'macAddress' => 'nullable|string',
             'pid' => 'nullable|string',
