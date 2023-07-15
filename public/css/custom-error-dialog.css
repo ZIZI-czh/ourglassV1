@@ -1,0 +1,53 @@
+h3 {
+    color: #ad0f0f;
+    font-size: 20px;
+    /* Adjust the font size as needed */
+    text-align: left;
+    /* Align the heading in the middle */
+    font-weight: bold;
+    /* Make the heading bold */
+}
+
+.error-dialog {
+    position: relative;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    border-radius: 4px;
+    padding: 20px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+
+
+}
+
+.error-dialog-content {
+    text-align: left;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.error-dialog-icon {
+    position: absolute;
+    top: 5px;
+    left: 10px;
+}
+
+.error-dialog h2 {
+    margin-top: 0;
+}
+
+.error-dialog p {
+    margin-bottom: 10px;
+}
+
+.error-dialog button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+}

@@ -25,8 +25,6 @@
                         <p><strong>Move State: </strong>{{ $robot['moveState'] }}</p>
                         <p><strong>Robot State: </strong>{{ $robot['robotState'] }}</p>
                         <p><strong>Robot Power: </strong>{{ $robot['robotPower'] }} %</p>
-                        <p><strong>Wifi Status: </strong>{{ $robot['robotWifi'] ? 'Online' : 'Offline' }}</p>
-
                     </div>
                 </div>
             </div>
