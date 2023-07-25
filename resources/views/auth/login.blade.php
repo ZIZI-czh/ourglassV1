@@ -1,11 +1,7 @@
 <x-guest-layout>
     <x-authentication-card>
         <x-slot name="logo">
-            {{-- <img src="{{ route('image.resize') }}" alt="Resized Logo">
-            --}}
-
             <img src={{ "images/logo.png" }} alt="Resized Logo">
-
         </x-slot>
 
         <x-validation-errors class=" mb-4" />
@@ -42,6 +38,11 @@
                     {{ __('Forgot your password?') }}
                 </a>
                 @endif
+                <span>&nbsp; &nbsp;</span> <!-- Inserting a space here -->
+                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('register') }}">
+                    {{ __('Register Now!') }}
+                </a>
+
 
                 <x-button class="ml-4">
                     {{ __('Log in') }}

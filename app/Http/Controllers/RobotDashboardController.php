@@ -1,6 +1,4 @@
 <?php
-
-
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -44,6 +42,7 @@ class RobotDashboardController extends Controller
     public function getRobotInformation()
     {
         $isOnline = false;
+        $showRobotsInfo = [];
 
         try {
             $email = auth()->user()->email;
@@ -73,7 +72,12 @@ class RobotDashboardController extends Controller
                                 $editRoute = route('robot-information.edit', ['robotId' => $robotId]);
                                 $robotData['editRoute'] = $editRoute; // Pass the robot data to the edit route
                                 $robotsData[] = $robotData; // Add the robot data to the robots array
-                                $activeRobots = RobotsApiData::updateOrCreate(['robotId' => $robotId, 'groupId' => $groupId, 'editRoute' => $editRoute, 'robotWifi' => $isOnline], $robotsData[0]['data']);
+                                $activeRobots = RobotsApiData::updateOrCreate([
+                                    'robotId' => $robotId,
+                                    'groupId' => $groupId,
+                                    'editRoute' => $editRoute,
+                                    'robotWifi' => $isOnline
+                                ], $robotsData[0]['data']);
 
                             } else {
                                 // Handle the robot API error response

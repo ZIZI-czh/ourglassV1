@@ -3,7 +3,7 @@
     <div>
         @foreach ($robots as $robot)
         <div class="container-fluid">
-            <div class="card card-background">
+            <div class="card {{ $robot['robotWifi'] ? 'online-card' : 'offline-card' }}">
                 <div class="col-md-1 image-container">
                     {{-- <img src="{{ asset('images/logo.png') }}" class="card-img" :alt="robot.robotId"> --}}
                     @php
@@ -26,7 +26,6 @@
                         <p><strong>Robot State: </strong>{{ $robot['robotState'] }}</p>
                         <p><strong>Robot Power: </strong>{{ $robot['robotPower'] }} %</p>
                         <p><strong>Wifi Status: </strong>{{ $robot['robotWifi'] ? 'Online' : 'Offline' }}</p>
-
                     </div>
                 </div>
             </div>
